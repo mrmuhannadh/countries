@@ -2,15 +2,7 @@ class AppStrings {
   static const String appTitle = 'Counties';
   static const String capital = 'Capital: ';
   static const String emptyString = '';
-  static const String spaceString = ' ';
-  static const String pngImagePath = 'assets/images/PNG/';
-  static const String jpgImagePath = 'assets/images/JPG/';
-  static const String jpegImagePath = 'assets/images/JPEG/';
-  static const String svgImagePath = 'assets/images/SVG/';
-  static const String pngImageFormat = '.png';
-  static const String jpgImageFormat = '.jpg';
-  static const String jpegImageFormat = '.jpeg';
-  static const String svgImageFormat = '.svg';
+  static const String noResultsFound = 'No Results found';
   static const String okLabel = 'OK';
   static const String connectionError = 'Connection Error';
   static const String connectionErrorMessage =

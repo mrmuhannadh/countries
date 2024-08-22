@@ -89,7 +89,13 @@ class _CountiesListScreenState extends State<CountiesListScreen> {
                         },
                       ),
                     )
-                  : const SizedBox(),
+                  : const Center(
+                      child: SizedBox(
+                        child: Text(
+                          AppStrings.noResultsFound,
+                        ),
+                      ),
+                    ),
             ),
           ],
         ),
