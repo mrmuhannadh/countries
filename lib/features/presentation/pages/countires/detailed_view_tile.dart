@@ -25,7 +25,7 @@ class DetailedViewTile extends StatelessWidget {
                   width: 150.w,
                   child: Text(
                     label ?? AppStrings.emptyString,
-                    style: AppStyles.CountriesListTextStyle(
+                    style: AppTextStyles.CountriesListTextStyle(
                       fontSize: 15.sp,
                       fontWeight: FontWeight.w500,
                     ),
@@ -34,7 +34,7 @@ class DetailedViewTile extends StatelessWidget {
               : const SizedBox(),
           Text(
             value,
-            style: AppStyles.CountriesListTextStyle(
+            style: AppTextStyles.CountriesListTextStyle(
               fontSize: 15.sp,
               fontWeight: FontWeight.w400,
             ),

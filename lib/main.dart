@@ -1,11 +1,13 @@
 import 'package:countries/core/utils/AppNavigation.dart';
 import 'package:countries/features/domain/usecases/countries/get_all_countries_use_case.dart';
 import 'package:countries/features/presentation/pages/countires/counties_list_screen.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
+import 'core/utils/AppStrings.dart';
 import 'features/data/remote_data_source.dart';
 import 'features/data/repositories_impl.dart';
 import 'features/presentation/bloc/countries/countries_bloc.dart';
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
         ],
         child: GlobalLoaderOverlay(
           child: MaterialApp(
-            title: 'Countries',
+            title: AppStrings.appTitle,
             debugShowCheckedModeBanner: false,
             onGenerateRoute: RouteGenerator.generateRoute,
             theme: ThemeData(

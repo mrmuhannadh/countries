@@ -34,11 +34,14 @@ class _CountiesListScreenState extends State<CountiesListScreen> {
       appBar: CommonAppBar(
         title: AppStrings.appTitle,
         sortAction: (value) {
+          // Reset the sorted data
           if (value == AppStrings.resetSort) {
             setState(() {
               data = List<CountriesResponseEntity>.from(clonedData!);
             });
           }
+
+          //Sort the data according to selected option
           CommonFunctions().sortCountries(data!, value);
           setState(() {});
         },
@@ -53,6 +56,8 @@ class _CountiesListScreenState extends State<CountiesListScreen> {
               data = List<CountriesResponseEntity>.from(
                 state.countriesResponseEntity,
               );
+
+              //Keep the copy of data purpose of sort reset
               clonedData = List<CountriesResponseEntity>.from(
                 state.countriesResponseEntity,
               );
@@ -62,10 +67,11 @@ class _CountiesListScreenState extends State<CountiesListScreen> {
             CommonFunctions.showErrorMessages(context, state.message);
           }
         },
+        //List all the countries
         child: Column(
           children: [
             Container(
-              height: 750.h,
+              height: 740.h,
               margin: EdgeInsets.symmetric(horizontal: 20.w),
               child: data != null
                   ? SizedBox(

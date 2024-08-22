@@ -7,6 +7,7 @@ import '../../features/domain/entities/response/countries/countries_response_ent
 import 'AppColors.dart';
 
 class CommonFunctions {
+  //Sort the counties
   List<CountriesResponseEntity> sortCountries(
       List<CountriesResponseEntity> countries, String type) {
     switch (type) {
@@ -24,11 +25,7 @@ class CommonFunctions {
     return countries;
   }
 
-  List<CountriesResponseEntity> resetSort(
-      List<CountriesResponseEntity> originalCountries) {
-    return List.from(originalCountries); // Returns a copy of the original list
-  }
-
+  //SnackBar to show the error messages
   static void showErrorMessages(BuildContext context, String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -38,10 +35,12 @@ class CommonFunctions {
     );
   }
 
+  //Show an overlay while loading
   static void showLoading(BuildContext context) {
     context.loaderOverlay.show();
   }
 
+  //Hide the overlay
   static void hideLoading(BuildContext context) {
     context.loaderOverlay.hide();
   }

@@ -44,7 +44,7 @@ class CountriesDetailedView extends StatelessWidget {
             const Divider(),
             Text(
               AppStrings.languages,
-              style: AppStyles.CountriesListTextStyle(
+              style: AppTextStyles.CountriesListTextStyle(
                 fontSize: 15.sp,
                 fontWeight: FontWeight.w500,
               ),
@@ -66,7 +66,7 @@ class CountriesDetailedView extends StatelessWidget {
             const Divider(),
             Text(
               AppStrings.flag,
-              style: AppStyles.CountriesListTextStyle(
+              style: AppTextStyles.CountriesListTextStyle(
                 fontSize: 15.sp,
                 fontWeight: FontWeight.w500,
               ),

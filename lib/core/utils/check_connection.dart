@@ -11,6 +11,7 @@ import '../../features/presentation/bloc/countries/countries_event.dart';
 import 'AppStrings.dart';
 
 class CheckConnection {
+  //This is to check the network connection before the API call
   late StreamSubscription _streamSubscription;
   bool isDeviceConnected = false;
   bool isAlert = false;
@@ -30,7 +31,7 @@ class CheckConnection {
         isAlert = false;
       }
 
-      //if connection is okay
+      //Call the event if connection is okay
       context.read<CountriesBloc>().add(GetAllCountriesEvent());
     } else {
       if (!isAlert) {
@@ -55,6 +56,7 @@ class CheckConnection {
 
                 isAlert = false;
 
+                //repeat the dialog until device connect the internet
                 await _checkConnectionAndProceed(context);
               },
               child: const Text(AppStrings.okLabel),

@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'AppColors.dart';
 
-class AppStyles {
+class AppTextStyles {
   static TextStyle CountriesListTextStyle({
     required double fontSize,
     required FontWeight fontWeight,

@@ -1,4 +1,5 @@
 import 'package:countries/core/utils/AppStrings.dart';
+import 'package:countries/core/utils/AppStyles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,13 +17,14 @@ class CommonAppBar extends StatefulWidget implements PreferredSizeWidget {
   });
 
   @override
-  Size get preferredSize => Size.fromHeight(50.h);
+  Size get preferredSize => Size.fromHeight(60.h);
 
   @override
   State<CommonAppBar> createState() => _CommonAppBarState();
 }
 
 class _CommonAppBarState extends State<CommonAppBar> {
+  //Sorting options
   final List<DropdownMenuItem<String>> dropdownItems = [
     const DropdownMenuItem(
       value: AppStrings.sortByPopulation,
@@ -58,7 +60,7 @@ class _CommonAppBarState extends State<CommonAppBar> {
       value: AppStrings.resetSort,
       child: Row(
         children: [
-          Icon(Icons.lock_reset_sharp),
+          Icon(Icons.refresh_rounded),
           SizedBox(width: 8),
           Text(AppStrings.resetSort),
         ],
@@ -69,8 +71,14 @@ class _CommonAppBarState extends State<CommonAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(widget.title),
-      centerTitle: true,
+      title: Text(
+        widget.title,
+        style: AppTextStyles.CountriesListTextStyle(
+          fontSize: 24.sp,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+      centerTitle: widget.isBackButtonAvailable,
       leading: widget.isBackButtonAvailable == true
           ? IconButton(
               onPressed: () {
@@ -80,9 +88,10 @@ class _CommonAppBarState extends State<CommonAppBar> {
                 Icons.arrow_back_ios_new,
               ),
             )
-          : const SizedBox(),
+          : null,
       elevation: 1,
       actions: [
+        //show the dropdown options in the counties screen and show the flag in detailed screen
         widget.isBackButtonAvailable == true
             ? Container(
                 margin: const EdgeInsets.only(right: 10),
@@ -102,6 +111,7 @@ class _CommonAppBarState extends State<CommonAppBar> {
                   icon: const Icon(Icons.sort),
                   items: dropdownItems,
                   onChanged: (String? newValue) {
+                    //Function to return the selected value
                     widget.sortAction!(newValue!) ?? () {};
                   },
                 ),

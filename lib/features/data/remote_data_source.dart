@@ -1,4 +1,4 @@
-import 'package:countries/features/data/models/reponse/countries_response_model.dart';
+import 'package:countries/features/data/models/response/countries_response_model.dart';
 import 'package:dio/dio.dart';
 
 abstract interface class RemoteDataSource {

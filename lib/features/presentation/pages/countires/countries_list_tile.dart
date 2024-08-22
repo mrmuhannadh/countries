@@ -19,6 +19,7 @@ class _CountriesListTileState extends State<CountriesListTile> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        //Switch to detailed screen with only the selected country data
         Navigator.pushNamed(
           context,
           AppStrings.countriesDetailedView,
@@ -34,7 +35,7 @@ class _CountriesListTileState extends State<CountriesListTile> {
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
-            Radius.circular(15.r),
+            Radius.circular(12.r),
           ),
           boxShadow: [
             BoxShadow(
@@ -44,6 +45,15 @@ class _CountriesListTileState extends State<CountriesListTile> {
               offset: const Offset(0, 0),
             ),
           ],
+          image: DecorationImage(
+            image: NetworkImage(
+              widget.country.flags.png ?? AppStrings.emptyString,
+            ),
+            fit: BoxFit.fitHeight,
+            repeat: ImageRepeat.noRepeat,
+            alignment: Alignment.centerRight,
+            opacity: 0.09,
+          ),
         ),
         height: 80.h,
         child: Row(
@@ -69,7 +79,7 @@ class _CountriesListTileState extends State<CountriesListTile> {
                 children: [
                   Text(
                     widget.country.name.common ?? AppStrings.emptyString,
-                    style: AppStyles.CountriesListTextStyle(
+                    style: AppTextStyles.CountriesListTextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w500,
                     ),
@@ -79,7 +89,7 @@ class _CountriesListTileState extends State<CountriesListTile> {
                   ),
                   Text(
                     AppStrings.capital + widget.country.capital[0],
-                    style: AppStyles.CountriesListTextStyle(
+                    style: AppTextStyles.CountriesListTextStyle(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w400,
                     ),
